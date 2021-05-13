@@ -1,23 +1,45 @@
-names=[];
-function submit(){
-    var name_1 = document.getElementById("sudent_1").value;
-    var name_2 = document.getElementById("sudent_2").value;
-    var name_3 = document.getElementById("sudent_3").value;
-    var name_4 = document.getElementById("sudent_4").value;
+name_of_the_student_array = [];
+function submit() {
+    var display_student_array = [];
 
-    names.push(name_1);
-    names.push(name_2);
-    names.push(name_3);
-    names.push(name_4);
+    for (var j = 1; j <= 4; j++) {
+        var name_of_the_student = document.getElementById("name_of_the_student_" + j).value;
+        console.log(name_of_the_student);
+        name_of_the_student_array.push(name_of_the_student);
+    }
+    console.log(name_of_the_student_array);
 
-    console.log(names);
+    var lenght_of_name_of_students_array = name_of_the_student_array.length;
+    console.log(lenght_of_name_of_students_array);
+    for (var k = 0; k < lenght_of_name_of_students_array; k++) {
+        display_student_array.push("<h4>NAME - " + name_of_the_student_array[k] + "</h4>");
+        console.log(display_student_array);
+    }
+    console.log(display_student_array);
+    document.getElementById("display_name_with_commas").innerHTML = display_student_array;
 
-    document.getElementById ("array").innerHTML=names;
-    document.getElementById ("submit").style.display="none";
-    document.getElementById ("sorts").style.display="inline-block";
+    var remove_commas = display_student_array.join(" ");
+    console.log(remove_commas);
+    document.getElementById("display_name_without_commas").innerHTML = remove_commas;
+
+    document.getElementById("submit_button").style.display = "none";
+    document.getElementById("sort_button").style.display = "inline-block";
 }
-function sort(){
-    names.sort();
-    console.log(names);
-    document.getElementById ("array").innerHTML=names;
+    function sorting() {
+        name_of_the_student_array.sort();
+        console.log(name_of_the_student_array);
+        var display_student_array_sorting = [];
+        var lenght_of_name_of_students_array = name_of_the_student_array.length;
+        console.log(lenght_of_name_of_students_array);
+        for (var k = 0; k < lenght_of_name_of_students_array; k++) {
+            display_student_array_sorting.push("<h4>NAME - " + name_of_the_student_array[k] + "</h4>");
+            console.log(display_student_array_sorting);
+        } var remove_commas = display_student_array_sorting.join(" ");
+        console.log(remove_commas); document.getElementById("display_name_without_commas").innerHTML = remove_commas;
+    }
+    function new_update()
+{
+    document.getElementById("display_name_without_commas").innerHTML = "<h1>" + name_of_the_student_array +"</h1>";
 }
+
+
